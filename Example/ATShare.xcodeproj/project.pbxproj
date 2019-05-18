@@ -348,12 +348,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ATShare_Example/Pods-ATShare_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ATCategories/ATCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/ATShare/ATShare.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ATCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ATShare.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

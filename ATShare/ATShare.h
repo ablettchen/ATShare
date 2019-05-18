@@ -1,9 +1,12 @@
 //
 //  ATShare.h
 //  ATShare
+//  https://github.com/ablettchen/ATShare
 //
-//  Created by ablett on 2019/5/17.
+//  Created by ablett on 05/17/2019.
+//  Copyright (c) 2019 ablett. All rights reserved.
 //
+
 
 #import <Foundation/Foundation.h>
 #import "ATShareDefin.h"

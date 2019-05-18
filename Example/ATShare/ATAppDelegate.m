@@ -1,9 +1,10 @@
 //
 //  ATAppDelegate.m
 //  ATShare
+//  https://github.com/ablettchen/ATShare
 //
-//  Created by ablettchen@gmail.com on 05/17/2019.
-//  Copyright (c) 2019 ablettchen@gmail.com. All rights reserved.
+//  Created by ablett on 05/17/2019.
+//  Copyright (c) 2019 ablett. All rights reserved.
 //
 
 #import "ATAppDelegate.h"
