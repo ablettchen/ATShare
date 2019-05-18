@@ -9,10 +9,10 @@
 
 
 #import "ATShare.h"
-
+#import <UMShare/UMShare.h>
 
 @interface ATShare ()
-@property (strong, nonatomic) NSMutableArray <id<ATShareSocialProtocol>> *socials;
+@property (strong, nonatomic) NSMutableArray <id<ATSocialProtocol>> *socials;
 
 @end
 @implementation ATShare
@@ -28,21 +28,46 @@
 
 #pragma mark - privite
 
+- (void)shareConfig:(nonnull id<ATSocialProtocol>)social {
+    UMSocialPlatformType type = [self umSocial:social];
+    [[UMSocialManager defaultManager] setPlaform:type
+                                          appKey:social.appKey
+                                       appSecret:social.appSecret
+                                     redirectURL:social.redirectURL];
+}
+
+- (UMSocialPlatformType)umSocial:(nonnull id<ATSocialProtocol>)social {
+    switch (social.type) {
+        case kATSocialTypeWechat:
+            return UMSocialPlatformType_WechatSession;
+        case kATSocialTypeWechatTimeline:
+            return UMSocialPlatformType_WechatTimeLine;
+        case kATSocialTypeQQ:
+            return UMSocialPlatformType_QQ;
+        case kATSocialTypeQZone:
+            return UMSocialPlatformType_Qzone;
+        case kATSocialTypeSina:
+            return UMSocialPlatformType_Sina;
+        default:
+            break;
+    }
+}
 
 #pragma mark - public
 
-- (void)addSocial:(__kindof NSObject<ATShareSocialProtocol> *)social {
+- (void)addSocial:(__kindof NSObject<ATSocialProtocol> *)social {
     if ([self.socials containsObject:social]) {return;}
     [self.socials addObject:social];
 }
 
-- (void)show:(nonnull ATShareMessage *)message
+- (void)show:(nonnull id<ATShareResProtocol>)res
     selected:(nullable ATShareSocialBlock)selected
     finished:(nullable ATShareFinishedBlock)finished {
     
+    
 }
 
-- (void)showLandscape:(nonnull ATShareMessage *)message
+- (void)showLandscape:(nonnull id<ATShareResProtocol>)res
              selected:(nullable ATShareSocialBlock)selected
              finished:(nullable ATShareFinishedBlock)finished {
     
@@ -52,24 +77,96 @@
     
 }
 
-- (void)shareToWechat:(nonnull ATShareMessage *)message {
-    
+- (void)shareTo:(nonnull id<ATSocialProtocol>)social
+            res:(nonnull id<ATShareResProtocol>)res
+       finished:(nullable ATShareFinishedBlock)finished {
+    self.finished = finished;
+    [self shareConfig:social];
+    switch (res.type) {
+        case ATShareResTypeWeb:{
+            [self shareWebTo:social res:res];
+        }break;
+        case ATShareResTypeImage:{
+            [self shareImageTo:social res:res];
+        }break;
+        case ATShareResTypeAudio:{
+            [self shareAudioTo:social res:res];
+        }break;
+        case ATShareResTypeVideo:{
+            [self shareVideoTo:social res:res];
+        }break;
+        default:
+            break;
+    }
 }
 
-- (void)shareToWechatTimeline:(nonnull ATShareMessage *)message {
-    
+- (void)shareWebTo:(nonnull id<ATSocialProtocol>)social res:(nonnull id<ATShareResProtocol>)res {
+    UMSocialPlatformType platformType = [self umSocial:social];
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:res.title
+                                                                             descr:res.desc
+                                                                         thumImage:res.thumb];
+    shareObject.webpageUrl = res.urlString;
+    messageObject.shareObject = shareObject;
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (self.finished) {
+            self.finished(error, social);
+        }
+    }];
 }
 
-- (void)shareToQQ:(nonnull ATShareMessage *)message {
-    
+- (void)shareImageTo:(nonnull id<ATSocialProtocol>)social res:(nonnull id<ATShareResProtocol>)res {
+    UMSocialPlatformType platformType = [self umSocial:social];
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    messageObject.text = res.title;
+    UMShareImageObject *shareObject = [[UMShareImageObject alloc] init];
+    shareObject.thumbImage = res.thumb;
+    [shareObject setShareImage:(res.urlString.length > 0) ? res.urlString : res.thumb];
+    messageObject.shareObject = shareObject;
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (self.finished) {
+            self.finished(error, social);
+        }
+    }];
 }
 
-- (void)shareToQZone:(nonnull ATShareMessage *)message {
-    
+- (void)shareAudioTo:(nonnull id<ATSocialProtocol>)social res:(nonnull id<ATShareResProtocol>)res {
+    UMSocialPlatformType platformType = [self umSocial:social];
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    UMShareMusicObject *shareObject = [UMShareMusicObject shareObjectWithTitle:res.title
+                                                                         descr:res.desc
+                                                                     thumImage:res.thumb];
+    shareObject.musicUrl = res.urlString;
+    messageObject.shareObject = shareObject;
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (self.finished) {
+            self.finished(error, social);
+        }
+    }];
 }
 
-- (void)shareToSina:(nonnull ATShareMessage *)message {
-    
+- (void)shareVideoTo:(nonnull id<ATSocialProtocol>)social res:(nonnull id<ATShareResProtocol>)res {
+    UMSocialPlatformType platformType = [self umSocial:social];
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    UMShareVideoObject *shareObject = [UMShareVideoObject shareObjectWithTitle:res.title
+                                                                         descr:res.desc
+                                                                     thumImage:res.thumb];
+    shareObject.videoUrl = res.urlString;
+    messageObject.shareObject = shareObject;
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (self.finished) {
+            self.finished(error, social);
+        }
+    }];
+}
+
++ (BOOL)handleOpenURL:(NSURL *)url options:(NSDictionary*)options {
+    return [[UMSocialManager defaultManager]  handleOpenURL:url options:options];
+}
+
++ (void)globleConfig {
+    [UMSocialGlobal shareInstance].isUsingWaterMark = YES;
+    [UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = YES;
 }
 
 @end

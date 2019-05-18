@@ -40,6 +40,13 @@
 		09B13D1258B7DA79F40C523B /* Pods-ATShare_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATShare_Example.debug.xcconfig"; path = "Target Support Files/Pods-ATShare_Example/Pods-ATShare_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		13EE9675B8D8FEFB18B91407 /* ATShare.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ATShare.podspec; path = ../ATShare.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		17439A7CB55AE2C8458EC718 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		19C1EA12229026DD00F232B3 /* UMCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMCommon.framework; path = Pods/UMCCommon/UMCommon.framework; sourceTree = "<group>"; };
+		19C1EA15229026F500F232B3 /* UMCommonLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommonLog.framework; sourceTree = "<group>"; };
+		19C1EA16229026F500F232B3 /* UMCommonLog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMCommonLog.bundle; sourceTree = "<group>"; };
+		19C1EA182290272700F232B3 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = Pods/UMCSecurityPlugins/thirdparties/UTDID.framework; sourceTree = "<group>"; };
+		19C1EA192290272800F232B3 /* SecurityEnvSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityEnvSDK.framework; path = Pods/UMCSecurityPlugins/thirdparties/SecurityEnvSDK.framework; sourceTree = "<group>"; };
+		19C1EA1C2290276400F232B3 /* UMShare.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMShare.framework; path = Pods/UMCShare/UMShare/UMShare.framework; sourceTree = "<group>"; };
+		19C1EA1E2290277B00F232B3 /* UShareUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UShareUI.framework; path = Pods/UMCShare/UMShare/UMSocialUI/UShareUI.framework; sourceTree = "<group>"; };
 		22D54483FFAA1D20444B09B9 /* Pods_ATShare_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATShare_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C317AE06255CCC1B3FC310 /* Pods-ATShare_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATShare_Tests.release.xcconfig"; path = "Target Support Files/Pods-ATShare_Tests/Pods-ATShare_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		2CC198AA5697B5904977AA0F /* Pods-ATShare_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATShare_Example.release.xcconfig"; path = "Target Support Files/Pods-ATShare_Example/Pods-ATShare_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +102,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19C1EA14229026F500F232B3 /* UMCommonLog */ = {
+			isa = PBXGroup;
+			children = (
+				19C1EA15229026F500F232B3 /* UMCommonLog.framework */,
+				19C1EA16229026F500F232B3 /* UMCommonLog.bundle */,
+			);
+			name = UMCommonLog;
+			path = Pods/UMCCommonLog/UMCommonLog;
+			sourceTree = "<group>";
+		};
 		215E27D2914081F011757C3C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +147,12 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				19C1EA1E2290277B00F232B3 /* UShareUI.framework */,
+				19C1EA1C2290276400F232B3 /* UMShare.framework */,
+				19C1EA192290272800F232B3 /* SecurityEnvSDK.framework */,
+				19C1EA182290272700F232B3 /* UTDID.framework */,
+				19C1EA14229026F500F232B3 /* UMCommonLog */,
+				19C1EA12229026DD00F232B3 /* UMCommon.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
@@ -504,9 +527,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 37Z4FSY7RD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/UMCCommon",
+					"$(PROJECT_DIR)/Pods/UMCCommonLog/UMCommonLog",
+					"$(PROJECT_DIR)/Pods/UMCSecurityPlugins/thirdparties",
+					"$(PROJECT_DIR)/Pods/UMCShare/UMShare",
+					"$(PROJECT_DIR)/Pods/UMCShare/UMShare/UMSocialUI",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ATShare/ATShare-Prefix.pch";
 				INFOPLIST_FILE = "ATShare/ATShare-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ablett.atshare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -520,9 +552,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 37Z4FSY7RD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/UMCCommon",
+					"$(PROJECT_DIR)/Pods/UMCCommonLog/UMCommonLog",
+					"$(PROJECT_DIR)/Pods/UMCSecurityPlugins/thirdparties",
+					"$(PROJECT_DIR)/Pods/UMCShare/UMShare",
+					"$(PROJECT_DIR)/Pods/UMCShare/UMShare/UMSocialUI",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ATShare/ATShare-Prefix.pch";
 				INFOPLIST_FILE = "ATShare/ATShare-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ablett.atshare;
 				PRODUCT_NAME = "$(TARGET_NAME)";

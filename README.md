@@ -9,35 +9,33 @@
 
 Platform supported
 
-* Wechat - 微信
-* Wechat timeline - 微信朋友圈
-* QQ - QQ 好友
-* QZone - QQ 空间
-* Sina - 新浪微博
+* Wechat
+* WechatTimeline
+* QQ
+* QZone
+* Sina
 
 支持横屏、竖屏展示
 ```objectiveC
-- (void)show:(nonnull ATShareMessage *)message
-       leave:(nullable ATShareSocialBlock)leave
+- (void)show:(nonnull id<ATShareResProtocol>)res
+    selected:(nullable ATShareSocialBlock)selected
     finished:(nullable ATShareFinishedBlock)finished;
 
-- (void)showLandscape:(nonnull ATShareMessage *)message
-                leave:(nullable ATShareSocialBlock)leave
+- (void)showLandscape:(nonnull id<ATShareResProtocol>)res
+                selected:(nullable ATShareSocialBlock)selected
              finished:(nullable ATShareFinishedBlock)finished;
 ```
 
 支持分享扩展
 ```objectiveC
-- (void)addSocial:(__kindof NSObject<ATShareSocialProtocol> *)social;
+- (void)addSocial:(nonnull id<ATSocialProtocol>)social;
 ```
 
 支持不带UI界面
 ```objectiveC
-- (void)shareToWechat;
-- (void)shareToWechatTimeline;
-- (void)shareToQQ;
-- (void)shareToQZone;
-- (void)shareToSina;
+- (void)shareTo:(nonnull id<ATSocialProtocol>)social
+            res:(nonnull id<ATShareResProtocol>)res
+       finished:(nullable ATShareFinishedBlock)finished;
 ```
 
 ## Example
@@ -57,7 +55,7 @@ pod 'ATShare'
 
 ## Author
 
-ablettchen@gmail.com, ablett.chen@gmail.com
+ablett, ablett.chen@gmail.com
 
 ## License
 

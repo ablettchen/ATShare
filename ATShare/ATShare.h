@@ -9,42 +9,40 @@
 
 
 #import <Foundation/Foundation.h>
-#import "ATShareDefin.h"
-#import "ATShareMessage.h"
-#import "ATShareProtocol.h"
-#import "ATShareSocials.h"
+#import "ATShareDefine.h"
+#import "ATShareRes.h"
+#import "ATSocialProtocol.h"
+#import "ATSocials.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^ATShareFinishedBlock)(NSError * _Nullable error, id<ATShareSocialProtocol> _Nonnull social);
-typedef void(^ATShareSocialBlock)(id<ATShareSocialProtocol> _Nonnull social);
+typedef void(^ATShareFinishedBlock)(NSError * _Nullable error, id<ATSocialProtocol> _Nonnull social);
+typedef void(^ATShareSocialBlock)(id<ATSocialProtocol> _Nonnull social);
 
 @interface ATShare : NSObject
 
-// umeng appid appkey
-// social appid appkey
-
-@property (strong, nonatomic, nonnull) ATShareMessage *message;
+@property (strong, nonatomic, nonnull) id<ATShareResProtocol> res;
 @property (copy, nonatomic, nullable) ATShareSocialBlock selected;
 @property (copy, nonatomic, nullable) ATShareFinishedBlock finished;
 
-- (void)addSocial:(nonnull id<ATShareSocialProtocol>)social;
+- (void)addSocial:(nonnull id<ATSocialProtocol>)social;
 
-- (void)show:(nonnull ATShareMessage *)message
+- (void)show:(nonnull id<ATShareResProtocol>)res
     selected:(nullable ATShareSocialBlock)selected
     finished:(nullable ATShareFinishedBlock)finished;
 
-- (void)showLandscape:(nonnull ATShareMessage *)message
-                selected:(nullable ATShareSocialBlock)selected
+- (void)showLandscape:(nonnull id<ATShareResProtocol>)res
+             selected:(nullable ATShareSocialBlock)selected
              finished:(nullable ATShareFinishedBlock)finished;
 
 - (void)hide;
 
-- (void)shareToWechat:(nonnull ATShareMessage *)message;
-- (void)shareToWechatTimeline:(nonnull ATShareMessage *)message;
-- (void)shareToQQ:(nonnull ATShareMessage *)message;
-- (void)shareToQZone:(nonnull ATShareMessage *)message;
-- (void)shareToSina:(nonnull ATShareMessage *)message;
+- (void)shareTo:(nonnull id<ATSocialProtocol>)social
+            res:(nonnull id<ATShareResProtocol>)res
+       finished:(nullable ATShareFinishedBlock)finished;
+
++ (BOOL)handleOpenURL:(NSURL *)url options:(NSDictionary*)options;
++ (void)globleConfig;
 
 @end
 

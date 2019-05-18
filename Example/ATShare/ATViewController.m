@@ -74,24 +74,24 @@
 - (void)shareAction:(UIButton *)sender {
     
     ATShare *share = [ATShare new];
-    [share addSocial:[ATShareSocialWechat new]];
-    [share addSocial:[ATShareSocialWechatTimeline new]];
+    [share addSocial:[ATSocialWechat new]];
+    [share addSocial:[ATSocialWechatTimeline new]];
     
-    ATShareMessage *sm = [ATShareMessage new];
-    sm.title = @"ATShare";
-    sm.desc = @"分享模块封装";
-    sm.thumb = @"https://github.com/ablettchen/ATPopupView/blob/master/Example/images/popup.gif";
-    sm.urlString = @"https://github.com/ablettchen/ATShare";
+    ATShareResWeb *res = [ATShareResWeb new];
+    res.title = @"ATShare";
+    res.desc = @"分享模块封装";
+    res.thumb = @"https://github.com/ablettchen/ATPopupView/blob/master/Example/images/popup.gif";
+    res.urlString = @"https://github.com/ablettchen/ATShare";
     
-    [share show:sm selected:nil finished:^(NSError * _Nullable error, id<ATShareSocialProtocol>  _Nonnull social) {
+    [share show:res selected:nil finished:^(NSError * _Nullable error, id<ATSocialProtocol>  _Nonnull social) {
         NSString *msg;
         if (error) {
             msg = [NSString stringWithFormat:@"%@ 分享失败，%@(%ld)", \
-                   at_shareSocialDescription(social.social),\
+                   at_socialDescription(social.type),\
                    error.localizedDescription, (long)error.code];
         }else {
             msg = [NSString stringWithFormat:@"%@ 分享成功", \
-                   at_shareSocialDescription(social.social)];
+                   at_socialDescription(social.type)];
         }
         NSLog(@"%@", msg);
     }];
@@ -100,18 +100,29 @@
 - (void)shareNoUIAction:(UIButton *)sender {
     
     ATShare *share = [ATShare new];
-    [share addSocial:[ATShareSocialWechat new]];
-    [share addSocial:[ATShareSocialWechatTimeline new]];
+    [share addSocial:[ATSocialWechat new]];
+    [share addSocial:[ATSocialWechatTimeline new]];
     
-    ATShareMessage *sm = [ATShareMessage new];
-    sm.title = @"ATShare";
-    sm.desc = @"分享模块封装";
-    sm.thumb = @"https://github.com/ablettchen/ATPopupView/blob/master/Example/images/popup.gif";
-    sm.urlString = @"https://github.com/ablettchen/ATShare";
+    ATShareResWeb *res = [ATShareResWeb new];
+    res.title = @"ATShare";
+    res.desc = @"分享模块封装";
+    res.thumb = @"https://github.com/ablettchen/ATPopupView/blob/master/Example/images/popup.gif";
+    res.urlString = @"https://github.com/ablettchen/ATShare";
     
-    [share shareToQQ:sm];
+    ATSocialWechat *social = [ATSocialWechat new];
+    
+    [share shareTo:social res:res finished:^(NSError * _Nullable error, id<ATSocialProtocol>  _Nonnull social) {
+        NSString *msg;
+        if (error) {
+            msg = [NSString stringWithFormat:@"%@ 分享失败，%@(%ld)", \
+                   at_socialDescription(social.type),\
+                   error.localizedDescription, (long)error.code];
+        }else {
+            msg = [NSString stringWithFormat:@"%@ 分享成功", \
+                   at_socialDescription(social.type)];
+        }
+    }];
     
 }
-
 
 @end

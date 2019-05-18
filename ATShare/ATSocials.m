@@ -1,5 +1,5 @@
 //
-//  ATShareSocials.m
+//  ATSocials.m
 //  ATShare
 //  https://github.com/ablettchen/ATShare
 //
@@ -8,12 +8,17 @@
 //
 
 
-#import "ATShareSocials.h"
+#import "ATSocials.h"
+#import <UMShare/UMShare.h>
 
-@implementation ATShareSocialWechat
+@implementation ATSocialWechat
 
-- (ATShareSocial)social {
-    return kATShareSocialWechat;
+@synthesize appKey;
+@synthesize appSecret;
+@synthesize redirectURL;
+
+- (ATSocialType)type {
+    return kATSocialTypeWechat;
 }
 
 - (NSString *)name {
@@ -29,15 +34,19 @@
 }
 
 - (NSString *)description {
-    return at_shareSocialDescription(self.social);
+    return at_socialDescription(self.type);
 }
 
 @end
 
-@implementation ATShareSocialWechatTimeline
+@implementation ATSocialWechatTimeline
 
-- (ATShareSocial)social {
-    return kATShareSocialWechatTimeline;
+@synthesize appKey;
+@synthesize appSecret;
+@synthesize redirectURL;
+
+- (ATSocialType)type {
+    return kATSocialTypeWechatTimeline;
 }
 
 - (NSString *)name {
@@ -53,15 +62,19 @@
 }
 
 - (NSString *)description {
-    return at_shareSocialDescription(self.social);
+    return at_socialDescription(self.type);
 }
 
 @end
 
-@implementation ATShareSocialQQ
+@implementation ATSocialQQ
 
-- (ATShareSocial)social {
-    return kATShareSocialQQ;
+@synthesize appKey;
+@synthesize appSecret;
+@synthesize redirectURL;
+
+- (ATSocialType)type {
+    return kATSocialTypeQQ;
 }
 
 - (NSString *)name {
@@ -77,15 +90,19 @@
 }
 
 - (NSString *)description {
-    return at_shareSocialDescription(self.social);
+    return at_socialDescription(self.type);
 }
 
 @end
 
-@implementation ATShareSocialQZone
+@implementation ATSocialQZone
 
-- (ATShareSocial)social {
-    return kATShareSocialQZone;
+@synthesize appKey;
+@synthesize appSecret;
+@synthesize redirectURL;
+
+- (ATSocialType)type {
+    return kATSocialTypeQZone;
 }
 
 - (NSString *)name {
@@ -101,15 +118,19 @@
 }
 
 - (NSString *)description {
-    return at_shareSocialDescription(self.social);
+    return at_socialDescription(self.type);
 }
 
 @end
 
-@implementation ATShareSocialSina
+@implementation ATSocialSina
 
-- (ATShareSocial)social {
-    return kATShareSocialSina;
+@synthesize appKey;
+@synthesize appSecret;
+@synthesize redirectURL;
+
+- (ATSocialType)type {
+    return kATSocialTypeSina;
 }
 
 - (NSString *)name {
@@ -125,7 +146,7 @@
 }
 
 - (NSString *)description {
-    return at_shareSocialDescription(self.social);
+    return at_socialDescription(self.type);
 }
 
 @end
