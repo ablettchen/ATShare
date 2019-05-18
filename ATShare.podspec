@@ -22,5 +22,21 @@ Pod::Spec.new do |s|
     
     s.dependency 'ATCategories'
     
+    # 友盟分享
+    s.dependency 'UMCCommon'
+    s.dependency 'UMCSecurityPlugins'
+    
+    # U-Share SDK UI模块（分享面板，建议添加）
+    s.dependency 'UMCShare/UI'
+    
+    # 集成微信(精简版0.2M)
+    s.dependency 'UMCShare/Social/ReducedWeChat'
+    
+    # 集成QQ/QZone/TIM(精简版0.5M)
+    s.dependency 'UMCShare/Social/ReducedQQ'
+
+    # 集成新浪微博(精简版1M)
+    s.dependency 'UMCShare/Social/ReducedSina'
+    
 end
 

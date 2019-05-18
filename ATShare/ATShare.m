@@ -52,23 +52,23 @@
     
 }
 
-- (void)shareToWechat {
+- (void)shareToWechat:(nonnull ATShareMessage *)message {
     
 }
 
-- (void)shareToWechatTimeline {
+- (void)shareToWechatTimeline:(nonnull ATShareMessage *)message {
     
 }
 
-- (void)shareToQQ {
+- (void)shareToQQ:(nonnull ATShareMessage *)message {
     
 }
 
-- (void)shareToQZone {
+- (void)shareToQZone:(nonnull ATShareMessage *)message {
     
 }
 
-- (void)shareToSina {
+- (void)shareToSina:(nonnull ATShareMessage *)message {
     
 }
 

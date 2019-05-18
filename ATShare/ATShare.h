@@ -21,6 +21,9 @@ typedef void(^ATShareSocialBlock)(id<ATShareSocialProtocol> _Nonnull social);
 
 @interface ATShare : NSObject
 
+// umeng appid appkey
+// social appid appkey
+
 @property (strong, nonatomic, nonnull) ATShareMessage *message;
 @property (copy, nonatomic, nullable) ATShareSocialBlock selected;
 @property (copy, nonatomic, nullable) ATShareFinishedBlock finished;
@@ -37,11 +40,11 @@ typedef void(^ATShareSocialBlock)(id<ATShareSocialProtocol> _Nonnull social);
 
 - (void)hide;
 
-- (void)shareToWechat;
-- (void)shareToWechatTimeline;
-- (void)shareToQQ;
-- (void)shareToQZone;
-- (void)shareToSina;
+- (void)shareToWechat:(nonnull ATShareMessage *)message;
+- (void)shareToWechatTimeline:(nonnull ATShareMessage *)message;
+- (void)shareToQQ:(nonnull ATShareMessage *)message;
+- (void)shareToQZone:(nonnull ATShareMessage *)message;
+- (void)shareToSina:(nonnull ATShareMessage *)message;
 
 @end
 
