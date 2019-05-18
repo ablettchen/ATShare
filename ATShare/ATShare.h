@@ -9,25 +9,27 @@
 #import "ATShareDefin.h"
 #import "ATShareMessage.h"
 #import "ATShareProtocol.h"
+#import "ATShareSocials.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^ATShareFinishedBlock)(NSError *error, ATShareMessage *message);
-typedef void(^ATShareSocialBlock)(NSError *error, ATShareMessage *message);
+typedef void(^ATShareFinishedBlock)(NSError * _Nullable error, id<ATShareSocialProtocol> _Nonnull social);
+typedef void(^ATShareSocialBlock)(id<ATShareSocialProtocol> _Nonnull social);
 
 @interface ATShare : NSObject
 
 @property (strong, nonatomic, nonnull) ATShareMessage *message;
+@property (copy, nonatomic, nullable) ATShareSocialBlock selected;
 @property (copy, nonatomic, nullable) ATShareFinishedBlock finished;
 
-- (void)addSocial:(__kindof NSObject<ATShareSocialProtocol> *)social;
+- (void)addSocial:(nonnull id<ATShareSocialProtocol>)social;
 
 - (void)show:(nonnull ATShareMessage *)message
-       leave:(nullable ATShareSocialBlock)leave
+    selected:(nullable ATShareSocialBlock)selected
     finished:(nullable ATShareFinishedBlock)finished;
 
 - (void)showLandscape:(nonnull ATShareMessage *)message
-                leave:(nullable ATShareSocialBlock)leave
+                selected:(nullable ATShareSocialBlock)selected
              finished:(nullable ATShareFinishedBlock)finished;
 
 - (void)hide;

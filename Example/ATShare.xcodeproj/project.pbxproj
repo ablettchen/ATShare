@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		09B13D1258B7DA79F40C523B /* Pods-ATShare_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATShare_Example.debug.xcconfig"; path = "Target Support Files/Pods-ATShare_Example/Pods-ATShare_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		13EE9675B8D8FEFB18B91407 /* ATShare.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ATShare.podspec; path = ../ATShare.podspec; sourceTree = "<group>"; };
+		13EE9675B8D8FEFB18B91407 /* ATShare.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ATShare.podspec; path = ../ATShare.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		17439A7CB55AE2C8458EC718 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		22D54483FFAA1D20444B09B9 /* Pods_ATShare_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATShare_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C317AE06255CCC1B3FC310 /* Pods-ATShare_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATShare_Tests.release.xcconfig"; path = "Target Support Files/Pods-ATShare_Tests/Pods-ATShare_Tests.release.xcconfig"; sourceTree = "<group>"; };

@@ -7,36 +7,17 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'ATShare'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of ATShare.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
-
-  s.homepage         = 'https://github.com/ablettchen@gmail.com/ATShare'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'ablettchen@gmail.com' => 'ablett.chen@gmail.com' }
-  s.source           = { :git => 'https://github.com/ablettchen@gmail.com/ATShare.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
-  s.ios.deployment_target = '8.0'
-
-  s.source_files = 'ATShare/Classes/**/*'
+  s.name                    = 'ATShare'
+  s.version                 = '0.1.0'
+  s.summary                 = '社会化分享'
+  s.homepage                = 'https://github.com/ablettchen/ATShare'
+  s.license                 = { :type => 'MIT', :file => 'LICENSE' }
+  s.author                  = { 'ablett' => 'ablettchen@gmail.com' }
+  s.source                  = { :git => 'https://github.com/ablettchen@gmail.com/ATShare.git', :tag => s.version.to_s }
+  s.social_media_url        = 'https://twitter.com/ablettchen'
+  s.ios.deployment_target   = '8.0'
+  s.source_files            = 'ATShare/**/*.{h,m}'
+  s.resource                = 'ATShare/ATShare.bundle'
+  s.requires_arc            = true
   
-  # s.resource_bundles = {
-  #   'ATShare' => ['ATShare/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
-end
+  s.dependency 'ATCategories'

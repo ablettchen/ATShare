@@ -18,10 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 // Video : title desc thumb URL
 
 @property (assign, nonatomic) enum ATShareResource resource;    ///< default is Url
-@property (copy, nonatomic) NSString *title;                    ///< 标题
-@property (copy, nonatomic) NSString *desc;                     ///< 描述
-@property (copy, nonatomic) id thumb;                           ///< 缩略图
-@property (copy, nonatomic) NSString *urlString;                ///< 资源链接
+@property (copy, nonatomic, nonnull) NSString *title;                    ///< 标题
+@property (copy, nonatomic, nonnull) NSString *desc;                     ///< 描述
+@property (copy, nonatomic, nonnull) id thumb;                           ///< 缩略图
+@property (copy, nonatomic, nonnull) NSString *urlString;                ///< 资源链接
 
 @end
 
