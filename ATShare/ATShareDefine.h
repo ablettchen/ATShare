@@ -53,17 +53,17 @@ NS_INLINE NSString *at_shareResDescription (ATShareResType type){
 NS_INLINE NSString *at_socialDescription (ATSocialType type){
     switch (type) {
         case kATSocialTypeWechat:
-            return @"Wechat";
+            return @"wechat";
         case kATSocialTypeWechatTimeline:
-            return @"WechatTimeline";
+            return @"wechattimeline";
         case kATSocialTypeQQ:
-            return @"QQ";
+            return @"qq";
         case kATSocialTypeQZone:
-            return @"QZone";
+            return @"qzone";
         case kATSocialTypeSina:
-            return @"Sina";
+            return @"sina";
         default:
-            return @"Unknow";
+            return @"unknow";
     }
 }
 

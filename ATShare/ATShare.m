@@ -10,11 +10,13 @@
 
 #import "ATShare.h"
 #import <UMShare/UMShare.h>
+#import <UMCommon/UMCommon.h>
+#import <ATCategories/ATCategories.h>
 
 @interface ATShare ()
 @property (strong, nonatomic) NSMutableArray <id<ATSocialProtocol>> *socials;
-
 @end
+
 @implementation ATShare
 
 #pragma mark - lifecycle
@@ -22,7 +24,9 @@
 - (instancetype)init {
     self = [super init];
     if (!self) return nil;
+    
     _socials = [NSMutableArray array];
+    
     return self;
 }
 
@@ -65,6 +69,7 @@
     finished:(nullable ATShareFinishedBlock)finished {
     
     
+    
 }
 
 - (void)showLandscape:(nonnull id<ATShareResProtocol>)res
@@ -74,7 +79,6 @@
 }
 
 - (void)hide {
-    
 }
 
 - (void)shareTo:(nonnull id<ATSocialProtocol>)social
@@ -108,7 +112,7 @@
                                                                          thumImage:res.thumb];
     shareObject.webpageUrl = res.urlString;
     messageObject.shareObject = shareObject;
-    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:nil completion:^(id data, NSError *error) {
         if (self.finished) {
             self.finished(error, social);
         }
@@ -123,7 +127,7 @@
     shareObject.thumbImage = res.thumb;
     [shareObject setShareImage:(res.urlString.length > 0) ? res.urlString : res.thumb];
     messageObject.shareObject = shareObject;
-    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:nil completion:^(id data, NSError *error) {
         if (self.finished) {
             self.finished(error, social);
         }
@@ -138,7 +142,7 @@
                                                                      thumImage:res.thumb];
     shareObject.musicUrl = res.urlString;
     messageObject.shareObject = shareObject;
-    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:nil completion:^(id data, NSError *error) {
         if (self.finished) {
             self.finished(error, social);
         }
@@ -153,7 +157,7 @@
                                                                      thumImage:res.thumb];
     shareObject.videoUrl = res.urlString;
     messageObject.shareObject = shareObject;
-    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:nil completion:^(id data, NSError *error) {
         if (self.finished) {
             self.finished(error, social);
         }
@@ -165,6 +169,7 @@
 }
 
 + (void)globleConfig {
+    [UMConfigure initWithAppkey:@"5835007ef43e48061900110b" channel:@"App Store"];
     [UMSocialGlobal shareInstance].isUsingWaterMark = YES;
     [UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = YES;
 }

@@ -9,7 +9,6 @@
 
 
 #import "ATSocials.h"
-#import <UMShare/UMShare.h>
 
 @implementation ATSocialWechat
 
@@ -26,7 +25,7 @@
 }
 
 - (NSString *)icon {
-    return [NSString stringWithFormat:@"atshare_icon_%@.png", self.description];
+    return [NSString stringWithFormat:@"atshare_social_%@.png", self.description];
 }
 
 - (BOOL)enable {
@@ -54,7 +53,7 @@
 }
 
 - (NSString *)icon {
-    return [NSString stringWithFormat:@"atshare_icon_%@.png", self.description];
+    return [NSString stringWithFormat:@"atshare_social_%@.png", self.description];
 }
 
 - (BOOL)enable {
@@ -82,7 +81,7 @@
 }
 
 - (NSString *)icon {
-    return [NSString stringWithFormat:@"atshare_icon_%@.png", self.description];
+    return [NSString stringWithFormat:@"atshare_social_%@.png", self.description];
 }
 
 - (BOOL)enable {
@@ -110,7 +109,7 @@
 }
 
 - (NSString *)icon {
-    return [NSString stringWithFormat:@"atshare_icon_%@.png", self.description];
+    return [NSString stringWithFormat:@"atshare_social_%@.png", self.description];
 }
 
 - (BOOL)enable {
@@ -138,7 +137,7 @@
 }
 
 - (NSString *)icon {
-    return [NSString stringWithFormat:@"atshare_icon_%@.png", self.description];
+    return [NSString stringWithFormat:@"atshare_social_%@.png", self.description];
 }
 
 - (BOOL)enable {
