@@ -5,38 +5,6 @@
 [![License](https://img.shields.io/cocoapods/l/ATShare.svg?style=flat)](https://cocoapods.org/pods/ATShare)
 [![Platform](https://img.shields.io/cocoapods/p/ATShare.svg?style=flat)](https://cocoapods.org/pods/ATShare)
 
-## Intro
-
-Platform supported
-
-* Wechat
-* WechatTimeline
-* QQ
-* QZone
-* Sina
-
-支持横屏、竖屏展示
-```objectiveC
-- (void)show:(nonnull id<ATShareResProtocol>)res
-    selected:(nullable ATShareSocialBlock)selected
-    finished:(nullable ATShareFinishedBlock)finished;
-
-- (void)showLandscape:(nonnull id<ATShareResProtocol>)res
-                selected:(nullable ATShareSocialBlock)selected
-             finished:(nullable ATShareFinishedBlock)finished;
-```
-
-支持分享扩展
-```objectiveC
-- (void)addSocial:(nonnull id<ATSocialProtocol>)social;
-```
-
-支持不带UI界面
-```objectiveC
-- (void)shareTo:(nonnull id<ATSocialProtocol>)social
-            res:(nonnull id<ATShareResProtocol>)res
-       finished:(nullable ATShareFinishedBlock)finished;
-```
 
 ## Example
 

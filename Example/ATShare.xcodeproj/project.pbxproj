@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AD6D87E9397D3AEC1F47F5E /* libPods-ATShare_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3418630CC338130A79D9F8C1 /* libPods-ATShare_Example.a */; };
+		4B689FDA8423286473654EE4 /* libPods-ATShare_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8DD55FF55E37C68EDCEAE02 /* libPods-ATShare_Tests.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -22,8 +24,6 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		BD775414C40ADFA08F8C0D86 /* Pods_ATShare_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91793FA56D4E55E2934BD284 /* Pods_ATShare_Example.framework */; };
-		FF1F156E6D33E477CDD5D1AB /* Pods_ATShare_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D54483FFAA1D20444B09B9 /* Pods_ATShare_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,9 +47,9 @@
 		19C1EA192290272800F232B3 /* SecurityEnvSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityEnvSDK.framework; path = Pods/UMCSecurityPlugins/thirdparties/SecurityEnvSDK.framework; sourceTree = "<group>"; };
 		19C1EA1C2290276400F232B3 /* UMShare.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMShare.framework; path = Pods/UMCShare/UMShare/UMShare.framework; sourceTree = "<group>"; };
 		19C1EA1E2290277B00F232B3 /* UShareUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UShareUI.framework; path = Pods/UMCShare/UMShare/UMSocialUI/UShareUI.framework; sourceTree = "<group>"; };
-		22D54483FFAA1D20444B09B9 /* Pods_ATShare_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATShare_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C317AE06255CCC1B3FC310 /* Pods-ATShare_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATShare_Tests.release.xcconfig"; path = "Target Support Files/Pods-ATShare_Tests/Pods-ATShare_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		2CC198AA5697B5904977AA0F /* Pods-ATShare_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATShare_Example.release.xcconfig"; path = "Target Support Files/Pods-ATShare_Example/Pods-ATShare_Example.release.xcconfig"; sourceTree = "<group>"; };
+		3418630CC338130A79D9F8C1 /* libPods-ATShare_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ATShare_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* ATShare_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATShare_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -71,7 +71,7 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		91793FA56D4E55E2934BD284 /* Pods_ATShare_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATShare_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8DD55FF55E37C68EDCEAE02 /* libPods-ATShare_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ATShare_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4BE6C3418E81468A879C724 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		FB5FE3319139137D452591E1 /* Pods-ATShare_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATShare_Tests.debug.xcconfig"; path = "Target Support Files/Pods-ATShare_Tests/Pods-ATShare_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +84,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				BD775414C40ADFA08F8C0D86 /* Pods_ATShare_Example.framework in Frameworks */,
+				1AD6D87E9397D3AEC1F47F5E /* libPods-ATShare_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +95,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				FF1F156E6D33E477CDD5D1AB /* Pods_ATShare_Tests.framework in Frameworks */,
+				4B689FDA8423286473654EE4 /* libPods-ATShare_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,8 +157,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				91793FA56D4E55E2934BD284 /* Pods_ATShare_Example.framework */,
-				22D54483FFAA1D20444B09B9 /* Pods_ATShare_Tests.framework */,
+				3418630CC338130A79D9F8C1 /* libPods-ATShare_Example.a */,
+				C8DD55FF55E37C68EDCEAE02 /* libPods-ATShare_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -230,7 +230,6 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				BD9C203D3C6BC12AB8B558ED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -363,30 +362,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BD9C203D3C6BC12AB8B558ED /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ATShare_Example/Pods-ATShare_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ATCategories/ATCategories.framework",
-				"${BUILT_PRODUCTS_DIR}/ATShare/ATShare.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ATCategories.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ATShare.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ATShare_Example/Pods-ATShare_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

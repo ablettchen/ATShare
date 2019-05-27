@@ -9,7 +9,7 @@
 
 #import "ATAppDelegate.h"
 #import "ATViewController.h"
-#import "ATShare.h"
+#import <ATShare/ATShare.h>
 
 @implementation ATAppDelegate
 
@@ -23,7 +23,7 @@
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
-    [ATShare globleConfig];
+    [ATShare globleConfig:@"5835007ef43e48061900110b"];
     
     return YES;
 }

@@ -1,21 +1,9 @@
-use_frameworks!
+#use_frameworks!
 
 platform :ios, '8.0'
 
 target 'ATShare_Example' do
   pod 'ATShare', :path => '../'
-  
-  # 友盟分享
-  pod 'UMCCommon'
-  
-  # 集成微信(精简版0.2M)
-  pod 'UMCShare/Social/ReducedWeChat'
-  
-  # 集成QQ/QZone/TIM(精简版0.5M)
-  pod 'UMCShare/Social/ReducedQQ'
-  
-  # 集成新浪微博(精简版1M)
-  pod 'UMCShare/Social/ReducedSina'
 
   target 'ATShare_Tests' do
     inherit! :search_paths

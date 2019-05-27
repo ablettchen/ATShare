@@ -16,10 +16,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^ATShareFinishedBlock)(NSError * _Nullable error, id<ATSocialProtocol> _Nonnull social);
+typedef void(^ATShareFinishedBlock)(NSError * _Nullable error, id<ATSocialProtocol> _Nullable social);
 typedef void(^ATShareSocialBlock)(id<ATSocialProtocol> _Nonnull social);
 
 @interface ATShare : NSObject
+
+@property (strong, nonatomic, readonly) NSMutableArray <id<ATSocialProtocol>> *socials;
 
 @property (strong, nonatomic, nonnull) id<ATShareResProtocol> res;
 @property (copy, nonatomic, nullable) ATShareSocialBlock selected;
@@ -27,22 +29,12 @@ typedef void(^ATShareSocialBlock)(id<ATSocialProtocol> _Nonnull social);
 
 - (void)addSocial:(nonnull id<ATSocialProtocol>)social;
 
-- (void)show:(nonnull id<ATShareResProtocol>)res
-    selected:(nullable ATShareSocialBlock)selected
-    finished:(nullable ATShareFinishedBlock)finished;
-
-- (void)showLandscape:(nonnull id<ATShareResProtocol>)res
-             selected:(nullable ATShareSocialBlock)selected
-             finished:(nullable ATShareFinishedBlock)finished;
-
-- (void)hide;
-
 - (void)shareTo:(nonnull id<ATSocialProtocol>)social
             res:(nonnull id<ATShareResProtocol>)res
        finished:(nullable ATShareFinishedBlock)finished;
 
 + (BOOL)handleOpenURL:(NSURL *)url options:(NSDictionary*)options;
-+ (void)globleConfig;
++ (void)globleConfig:(NSString *)umAppKey;
 
 @end
 

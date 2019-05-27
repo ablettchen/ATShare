@@ -17,24 +17,22 @@ Pod::Spec.new do |s|
     s.social_media_url        = 'https://twitter.com/ablettchen'
     s.ios.deployment_target   = '8.0'
     s.source_files            = 'ATShare/**/*.{h,m}'
-    s.resource                = 'ATShare/ATShare.bundle'
     s.requires_arc            = true
-    # s.frameworks              = 'CoreTelephony'
-    
     
     s.dependency 'ATCategories'
     
     # 友盟分享
-    # s.dependency 'UMCCommon'
+    s.dependency 'UMCCommon'
     
     # 集成微信(精简版0.2M)
-    # s.dependency 'UMCShare/Social/ReducedWeChat'
+    s.dependency 'UMCShare/Social/ReducedWeChat'
     
     # 集成QQ/QZone/TIM(精简版0.5M)
-    # s.dependency 'UMCShare/Social/ReducedQQ'
+    s.dependency 'UMCShare/Social/ReducedQQ'
     
     # 集成新浪微博(精简版1M)
-    # s.dependency 'UMCShare/Social/ReducedSina'
+    s.dependency 'UMCShare/Social/ReducedSina'
+    
     
 end
 

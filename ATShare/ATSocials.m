@@ -9,6 +9,8 @@
 
 
 #import "ATSocials.h"
+#import <UMCommon/UMCommon.h>
+#import <UMShare/UMShare.h>
 
 @implementation ATSocialWechat
 
@@ -29,7 +31,7 @@
 }
 
 - (BOOL)enable {
-    return YES;
+    return [[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_WechatSession];
 }
 
 - (NSString *)description {
@@ -57,7 +59,7 @@
 }
 
 - (BOOL)enable {
-    return YES;
+    return [[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_WechatTimeLine];
 }
 
 - (NSString *)description {
@@ -85,7 +87,7 @@
 }
 
 - (BOOL)enable {
-    return YES;
+    return [[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_QQ];
 }
 
 - (NSString *)description {
@@ -113,7 +115,7 @@
 }
 
 - (BOOL)enable {
-    return YES;
+    return [[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_Qzone];
 }
 
 - (NSString *)description {
@@ -141,7 +143,7 @@
 }
 
 - (BOOL)enable {
-    return YES;
+    return [[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_Sina];
 }
 
 - (NSString *)description {
