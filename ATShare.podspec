@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
     s.name                    = 'ATShare'
     s.version                 = '0.1.0'
-    s.summary                 = '社会化分享'
+    s.summary                 = 'Social share'
     s.homepage                = 'https://github.com/ablettchen/ATShare'
     s.license                 = { :type => 'MIT', :file => 'LICENSE' }
     s.author                  = { 'ablett' => 'ablettchen@gmail.com' }
