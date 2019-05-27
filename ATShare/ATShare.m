@@ -33,6 +33,7 @@
 #pragma mark - privite
 
 - (void)shareConfig:(nonnull id<ATSocialProtocol>)social {
+    if (social.type == kATSocialTypeCustom) {return;}
     UMSocialPlatformType type = [self.class umSocial:social];
     [[UMSocialManager defaultManager] setPlaform:type
                                           appKey:social.appKey
@@ -52,7 +53,10 @@
             return UMSocialPlatformType_Qzone;
         case kATSocialTypeSina:
             return UMSocialPlatformType_Sina;
+        case kATSocialTypeCustom:
+            return UMSocialPlatformType_UserDefine_Begin;
         default:
+            return UMSocialPlatformType_UnKnown;
             break;
     }
 }

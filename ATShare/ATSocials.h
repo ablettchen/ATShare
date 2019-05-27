@@ -18,5 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ATSocialQQ              : NSObject<ATSocialProtocol> @end
 @interface ATSocialQZone           : NSObject<ATSocialProtocol> @end
 @interface ATSocialSina            : NSObject<ATSocialProtocol> @end
+@interface ATSocialCopy            : NSObject<ATSocialProtocol> @end
 
 NS_ASSUME_NONNULL_END

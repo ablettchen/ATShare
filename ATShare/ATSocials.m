@@ -23,11 +23,11 @@
 }
 
 - (NSString *)name {
-    return self.description;
+    return @"微信";
 }
 
 - (NSString *)icon {
-    return [NSString stringWithFormat:@"atshare_social_%@.png", self.description];
+    return @"atshare_social_wechat@2x.png";
 }
 
 - (BOOL)enable {
@@ -51,11 +51,11 @@
 }
 
 - (NSString *)name {
-    return self.description;
+    return @"朋友圈";
 }
 
 - (NSString *)icon {
-    return [NSString stringWithFormat:@"atshare_social_%@.png", self.description];
+    return @"atshare_social_wechattimeline@2x.png";
 }
 
 - (BOOL)enable {
@@ -79,11 +79,11 @@
 }
 
 - (NSString *)name {
-    return self.description;
+    return @"QQ";
 }
 
 - (NSString *)icon {
-    return [NSString stringWithFormat:@"atshare_social_%@.png", self.description];
+    return @"atshare_social_qq@2x.png";
 }
 
 - (BOOL)enable {
@@ -107,11 +107,11 @@
 }
 
 - (NSString *)name {
-    return self.description;
+    return @"QQ空间";
 }
 
 - (NSString *)icon {
-    return [NSString stringWithFormat:@"atshare_social_%@.png", self.description];
+    return @"atshare_social_qzone@2x.png";
 }
 
 - (BOOL)enable {
@@ -135,15 +135,43 @@
 }
 
 - (NSString *)name {
-    return self.description;
+    return @"微博";
 }
 
 - (NSString *)icon {
-    return [NSString stringWithFormat:@"atshare_social_%@.png", self.description];
+    return @"atshare_social_sina@2x.png";
 }
 
 - (BOOL)enable {
     return [[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_Sina];
+}
+
+- (NSString *)description {
+    return at_socialDescription(self.type);
+}
+
+@end
+
+@implementation ATSocialCopy
+
+@synthesize appKey;
+@synthesize appSecret;
+@synthesize redirectURL;
+
+- (ATSocialType)type {
+    return kATSocialTypeSina;
+}
+
+- (NSString *)name {
+    return @"复制";
+}
+
+- (NSString *)icon {
+    return @"atshare_social_urlcopy@2x.png";
+}
+
+- (BOOL)enable {
+    return YES;
 }
 
 - (NSString *)description {

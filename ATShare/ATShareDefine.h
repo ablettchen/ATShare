@@ -21,12 +21,13 @@ typedef NS_ENUM(NSUInteger, ATShareResType) {
     ATShareResTypeVideo,      ///< Video
 };
 
-typedef NS_OPTIONS(NSUInteger, ATSocialType) {
-    kATSocialTypeWechat            = 1 << 1,   ///< Wechat
-    kATSocialTypeWechatTimeline    = 1 << 2,   ///< Wechat timeline
-    kATSocialTypeQQ                = 1 << 3,   ///< QQ
-    kATSocialTypeQZone             = 1 << 4,   ///< QZone
-    kATSocialTypeSina              = 1 << 5,   ///< Sina
+typedef NS_ENUM(NSUInteger, ATSocialType) {
+    kATSocialTypeWechat = 1,     ///< Wechat
+    kATSocialTypeWechatTimeline, ///< Wechat timeline
+    kATSocialTypeQQ,             ///< QQ
+    kATSocialTypeQZone,          ///< QZone
+    kATSocialTypeSina,           ///< Sina
+    kATSocialTypeCustom,         ///< Custom
 };
 
 typedef NS_ENUM(NSUInteger, ATUrlAction) {
@@ -53,17 +54,19 @@ NS_INLINE NSString *at_shareResDescription (ATShareResType type){
 NS_INLINE NSString *at_socialDescription (ATSocialType type){
     switch (type) {
         case kATSocialTypeWechat:
-            return @"wechat";
+            return @"Wechat";
         case kATSocialTypeWechatTimeline:
-            return @"wechattimeline";
+            return @"Wechat Timeline";
         case kATSocialTypeQQ:
-            return @"qq";
+            return @"QQ";
         case kATSocialTypeQZone:
-            return @"qzone";
+            return @"QZone";
         case kATSocialTypeSina:
-            return @"sina";
+            return @"Sina";
+        case kATSocialTypeCustom:
+            return @"Custom";
         default:
-            return @"unknow";
+            return @"Unknow";
     }
 }
 

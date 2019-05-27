@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol ATSocialProtocol <NSObject>
 
-@property (assign, nonatomic, readonly) ATSocialType type;
+@property (assign, nonatomic, readonly) enum ATSocialType type;
 @property (copy, nonatomic, readonly, nonnull) NSString *name;
 @property (copy, nonatomic, readonly, nonnull) NSString *icon;
 @property (assign, nonatomic, readonly) BOOL enable;

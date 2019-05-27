@@ -17,14 +17,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^ATShareFinishedBlock)(NSError * _Nullable error, id<ATSocialProtocol> _Nullable social);
-typedef void(^ATShareSocialBlock)(id<ATSocialProtocol> _Nonnull social);
 
 @interface ATShare : NSObject
 
 @property (strong, nonatomic, readonly) NSMutableArray <id<ATSocialProtocol>> *socials;
 
 @property (strong, nonatomic, nonnull) id<ATShareResProtocol> res;
-@property (copy, nonatomic, nullable) ATShareSocialBlock selected;
 @property (copy, nonatomic, nullable) ATShareFinishedBlock finished;
 
 - (void)addSocial:(nonnull id<ATSocialProtocol>)social;
