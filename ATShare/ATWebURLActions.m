@@ -60,7 +60,7 @@
 }
 
 - (NSString *)name {
-    return @"在Safari中打开";
+    return @"在Safari中\n打开";
 }
 
 - (NSString *)icon {

@@ -24,7 +24,7 @@
 }
 
 - (NSString *)name {
-    return @"分享给微信好友";
+    return @"分享给\n微信好友";
 }
 
 - (NSString *)icon {
@@ -53,7 +53,7 @@
 }
 
 - (NSString *)name {
-    return @"分享到微信朋友圈";
+    return @"分享到\n微信朋友圈";
 }
 
 - (NSString *)icon {
@@ -82,7 +82,7 @@
 }
 
 - (NSString *)name {
-    return @"分享到手机QQ";
+    return @"分享到\n手机QQ";
 }
 
 - (NSString *)icon {
@@ -111,7 +111,7 @@
 }
 
 - (NSString *)name {
-    return @"分享到QQ空间";
+    return @"分享到\nQQ空间";
 }
 
 - (NSString *)icon {
@@ -140,7 +140,7 @@
 }
 
 - (NSString *)name {
-    return @"分享到新浪微博";
+    return @"分享到\n新浪微博";
 }
 
 - (NSString *)icon {
