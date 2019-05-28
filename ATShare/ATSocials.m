@@ -24,7 +24,7 @@
 }
 
 - (NSString *)name {
-    return @"微信好友";
+    return @"分享给微信好友";
 }
 
 - (NSString *)icon {
@@ -53,7 +53,7 @@
 }
 
 - (NSString *)name {
-    return @"朋友圈";
+    return @"分享到微信朋友圈";
 }
 
 - (NSString *)icon {
@@ -82,7 +82,7 @@
 }
 
 - (NSString *)name {
-    return @"QQ";
+    return @"分享到手机QQ";
 }
 
 - (NSString *)icon {
@@ -111,7 +111,7 @@
 }
 
 - (NSString *)name {
-    return @"QQ空间";
+    return @"分享到QQ空间";
 }
 
 - (NSString *)icon {
@@ -137,6 +137,14 @@
 
 - (ATSocialType)type {
     return kATSocialTypeSina;
+}
+
+- (NSString *)name {
+    return @"分享到新浪微博";
+}
+
+- (NSString *)icon {
+    return @"atshare_social_sina@2x.png";
 }
 
 - (BOOL)enable {

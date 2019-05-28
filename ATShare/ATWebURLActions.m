@@ -16,7 +16,7 @@
 }
 
 - (NSString *)name {
-    return @"复制";
+    return @"复制链接";
 }
 
 - (NSString *)icon {
@@ -60,7 +60,7 @@
 }
 
 - (NSString *)name {
-    return @"Safari打开";
+    return @"在Safari中打开";
 }
 
 - (NSString *)icon {
