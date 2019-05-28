@@ -20,7 +20,7 @@
 }
 
 - (NSString *)icon {
-    return @"atshare_weburlaction_copy@2x.png";
+    return @"atshare_weburlaction_copyurl@2x.png";
 }
 
 - (NSString *)description {

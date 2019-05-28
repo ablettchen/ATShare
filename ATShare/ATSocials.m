@@ -28,7 +28,7 @@
 }
 
 - (NSString *)icon {
-    return @"atshare_social_wechattimeline@2x.png";
+    return @"atshare_social_wechat@2x.png";
 }
 
 - (BOOL)enable {
