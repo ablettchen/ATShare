@@ -30,12 +30,6 @@ typedef NS_ENUM(NSUInteger, ATSocialType) {
     kATSocialTypeCustom,         ///< Custom
 };
 
-typedef NS_ENUM(NSUInteger, ATUrlAction) {
-    kATUrlActionCopy = 1,       ///< Copy
-    kATUrlActionRefresh,        ///< Refresh
-    kATUrlActionOpenInSafari,   ///< Open in safari
-};
-
 NS_INLINE NSString *at_shareResDescription (ATShareResType type){
     switch (type) {
         case ATShareResTypeWeb:

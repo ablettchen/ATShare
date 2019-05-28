@@ -151,31 +151,3 @@
 }
 
 @end
-
-@implementation ATSocialCopy
-
-@synthesize appKey;
-@synthesize appSecret;
-@synthesize redirectURL;
-
-- (ATSocialType)type {
-    return kATSocialTypeSina;
-}
-
-- (NSString *)name {
-    return @"复制";
-}
-
-- (NSString *)icon {
-    return @"atshare_social_urlcopy@2x.png";
-}
-
-- (BOOL)enable {
-    return YES;
-}
-
-- (NSString *)description {
-    return at_socialDescription(self.type);
-}
-
-@end
