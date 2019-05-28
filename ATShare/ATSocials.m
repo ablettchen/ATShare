@@ -13,7 +13,8 @@
 #import <UMShare/UMShare.h>
 
 @implementation ATSocialWechat
-
+@synthesize name;
+@synthesize icon;
 @synthesize appKey;
 @synthesize appSecret;
 @synthesize redirectURL;
@@ -23,11 +24,11 @@
 }
 
 - (NSString *)name {
-    return @"微信";
+    return @"微信好友";
 }
 
 - (NSString *)icon {
-    return @"atshare_social_wechat@2x.png";
+    return @"atshare_social_wechattimeline@2x.png";
 }
 
 - (BOOL)enable {
@@ -41,7 +42,8 @@
 @end
 
 @implementation ATSocialWechatTimeline
-
+@synthesize name;
+@synthesize icon;
 @synthesize appKey;
 @synthesize appSecret;
 @synthesize redirectURL;
@@ -69,7 +71,8 @@
 @end
 
 @implementation ATSocialQQ
-
+@synthesize name;
+@synthesize icon;
 @synthesize appKey;
 @synthesize appSecret;
 @synthesize redirectURL;
@@ -97,7 +100,8 @@
 @end
 
 @implementation ATSocialQZone
-
+@synthesize name;
+@synthesize icon;
 @synthesize appKey;
 @synthesize appSecret;
 @synthesize redirectURL;
@@ -125,21 +129,14 @@
 @end
 
 @implementation ATSocialSina
-
+@synthesize name;
+@synthesize icon;
 @synthesize appKey;
 @synthesize appSecret;
 @synthesize redirectURL;
 
 - (ATSocialType)type {
     return kATSocialTypeSina;
-}
-
-- (NSString *)name {
-    return @"微博";
-}
-
-- (NSString *)icon {
-    return @"atshare_social_sina@2x.png";
 }
 
 - (BOOL)enable {

@@ -24,9 +24,9 @@
 - (instancetype)init {
     self = [super init];
     if (!self) return nil;
-    
     _socials = [NSMutableArray array];
-    
+    _webURLActions = [NSMutableArray array];
+    [_webURLActions addObjectsFromArray:[[self class] defaultWebURLActions]];
     return self;
 }
 
@@ -68,6 +68,11 @@
     [self.socials addObject:social];
 }
 
+- (void)addWebURLAction:(nonnull id<ATWebURLActionProtocol>)webURLAction {
+    if ([self.webURLActions containsObject:webURLAction]) {return;}
+    [self.webURLActions addObject:webURLAction];
+}
+
 - (void)shareTo:(nonnull id<ATSocialProtocol>)social
             res:(nonnull id<ATShareResProtocol>)res
        finished:(nullable ATShareFinishedBlock)finished {
@@ -92,7 +97,7 @@
 }
 
 - (void)shareWebTo:(nonnull id<ATSocialProtocol>)social res:(nonnull id<ATShareResProtocol>)res {
-    if (!social.enable) {
+    if (social.type != kATSocialTypeCustom && !social.enable) {
         NSString *msg = [NSString stringWithFormat:@"%@ is disabled", social.description];
         NSError *error = [NSError errorWithDomain:@"com.ablett.atshare" code:404 userInfo:@{NSLocalizedDescriptionKey:msg}];
         if (self.finished) {self.finished(error, social);}
@@ -165,6 +170,14 @@
     [UMConfigure initWithAppkey:umAppKey channel:@"App Store"];
     [UMSocialGlobal shareInstance].isUsingWaterMark = NO;
     [UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
+}
+
++ (NSArray <id<ATWebURLActionProtocol>>*)defaultWebURLActions {
+    NSMutableArray <id<ATWebURLActionProtocol>>*actions = [NSMutableArray array];
+    [actions addObject:[ATWebURLActionCopy new]];
+    [actions addObject:[ATWebURLActionRefresh new]];
+    [actions addObject:[ATWebURLActionOpenInSafari new]];
+    return actions;
 }
 
 @end

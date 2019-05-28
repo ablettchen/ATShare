@@ -27,7 +27,14 @@ typedef NS_ENUM(NSUInteger, ATSocialType) {
     kATSocialTypeQQ,             ///< QQ
     kATSocialTypeQZone,          ///< QZone
     kATSocialTypeSina,           ///< Sina
-    kATSocialTypeCustom,         ///< Custom
+    kATSocialTypeCustom,         ///< Custom, 如APP内部分享
+};
+
+typedef NS_ENUM(NSUInteger, ATWebURLActionType) {
+    kATWebURLActionTypeCopy = 1,       ///< Copy
+    kATWebURLActionTypeRefresh,        ///< Refresh
+    kATWebURLActionTypeOpenInSafari,   ///< Open in safari
+    kATWebURLActionTypeCustom,         ///< Custom，如收藏
 };
 
 NS_INLINE NSString *at_shareResDescription (ATShareResType type){
@@ -58,6 +65,21 @@ NS_INLINE NSString *at_socialDescription (ATSocialType type){
         case kATSocialTypeSina:
             return @"Sina";
         case kATSocialTypeCustom:
+            return @"Custom";
+        default:
+            return @"Unknow";
+    }
+}
+
+NS_INLINE NSString *at_urlActionDescription (ATWebURLActionType type){
+    switch (type) {
+        case kATWebURLActionTypeCopy:
+            return @"Copy";
+        case kATWebURLActionTypeRefresh:
+            return @"Refresh";
+        case kATWebURLActionTypeOpenInSafari:
+            return @"Open in Safari";
+        case kATWebURLActionTypeCustom:
             return @"Custom";
         default:
             return @"Unknow";

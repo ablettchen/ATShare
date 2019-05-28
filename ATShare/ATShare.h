@@ -10,9 +10,12 @@
 
 #import <Foundation/Foundation.h>
 #import "ATShareDefine.h"
-#import "ATShareRes.h"
+#import "ATShareResProtocol.h"
 #import "ATSocialProtocol.h"
+#import "ATWebURLActionProtocol.h"
+#import "ATShareRes.h"
 #import "ATSocials.h"
+#import "ATWebURLActions.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,12 +23,14 @@ typedef void(^ATShareFinishedBlock)(NSError * _Nullable error, id<ATSocialProtoc
 
 @interface ATShare : NSObject
 
+@property (strong, nonatomic, readonly) NSMutableArray <id<ATWebURLActionProtocol>> *webURLActions;
 @property (strong, nonatomic, readonly) NSMutableArray <id<ATSocialProtocol>> *socials;
 
 @property (strong, nonatomic, nonnull) id<ATShareResProtocol> res;
 @property (copy, nonatomic, nullable) ATShareFinishedBlock finished;
 
 - (void)addSocial:(nonnull id<ATSocialProtocol>)social;
+- (void)addWebURLAction:(nonnull id<ATWebURLActionProtocol>)webURLAction;
 
 - (void)shareTo:(nonnull id<ATSocialProtocol>)social
             res:(nonnull id<ATShareResProtocol>)res
@@ -33,6 +38,8 @@ typedef void(^ATShareFinishedBlock)(NSError * _Nullable error, id<ATSocialProtoc
 
 + (BOOL)handleOpenURL:(NSURL *)url options:(NSDictionary*)options;
 + (void)globleConfig:(NSString *)umAppKey;
+
++ (NSArray <id<ATWebURLActionProtocol>>*)defaultWebURLActions;
 
 @end
 
