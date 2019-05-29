@@ -16,7 +16,7 @@
 #import <ATCategories/ATCategories.h>
 
 NS_INLINE NSBundle *atshare_bundle(void) {
-    return [NSBundle at_bundleForClass:NSClassFromString(@"ATShare") resource:@"ATShareView" ofType:@"bundle"];
+    return [NSBundle at_bundleForClass:NSClassFromString(@"ATShare") resource:@"ATShare" ofType:@"bundle"];
 }
 
 NS_INLINE UIImage *atshare_imageNamed(NSString *name) {
