@@ -14,7 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (assign, nonatomic, readonly) enum ATWebURLActionType type;
 @property (copy, nonatomic, nonnull) NSString *name;
-@property (copy, nonatomic, nonnull) NSString *icon;
+@property (copy, nonatomic, nonnull) UIImage *icon;
+@property (assign, nonatomic) BOOL enable;
 
 @end
 

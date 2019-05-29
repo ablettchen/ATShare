@@ -13,6 +13,15 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <ATCategories/ATCategories.h>
+
+NS_INLINE NSBundle *atshare_bundle(void) {
+    return [NSBundle at_bundleForClass:NSClassFromString(@"ATShare") resource:@"ATShareView" ofType:@"bundle"];
+}
+
+NS_INLINE UIImage *atshare_imageNamed(NSString *name) {
+    return [atshare_bundle() at_imageNamed:name];
+}
 
 typedef NS_ENUM(NSUInteger, ATShareResType) {
     ATShareResTypeWeb = 1,    ///< URL

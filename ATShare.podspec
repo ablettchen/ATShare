@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name                    = 'ATShare'
-    s.version                 = '0.1.6'
+    s.version                 = '0.1.3'
     s.summary                 = 'Social share'
     s.homepage                = 'https://github.com/ablettchen/ATShare'
     s.license                 = { :type => 'MIT', :file => 'LICENSE' }
@@ -17,6 +17,7 @@ Pod::Spec.new do |s|
     s.social_media_url        = 'https://twitter.com/ablettchen'
     s.ios.deployment_target   = '8.0'
     s.source_files            = 'ATShare/**/*.{h,m}'
+    s.resource                = 'ATShare/ATShare.bundle'
     s.requires_arc            = true
     
     s.dependency 'ATCategories'

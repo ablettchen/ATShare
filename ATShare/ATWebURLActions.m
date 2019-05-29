@@ -10,17 +10,19 @@
 @implementation ATWebURLActionCopy
 @synthesize name;
 @synthesize icon;
+@synthesize enable;
+
+- (instancetype)init {
+    self = [super init];
+    if (!self) return nil;
+    self.name = @"复制链接";
+    self.icon = atshare_imageNamed(@"atshare_weburlaction_copyurl@2x.png");
+    self.enable = YES;
+    return self;
+}
 
 - (enum ATWebURLActionType)type {
     return kATWebURLActionTypeCopy;
-}
-
-- (NSString *)name {
-    return @"复制链接";
-}
-
-- (NSString *)icon {
-    return @"atshare_weburlaction_copyurl@2x.png";
 }
 
 - (NSString *)description {
@@ -32,17 +34,19 @@
 @implementation ATWebURLActionRefresh
 @synthesize name;
 @synthesize icon;
+@synthesize enable;
+
+- (instancetype)init {
+    self = [super init];
+    if (!self) return nil;
+    self.name = @"刷新";
+    self.icon = atshare_imageNamed(@"atshare_weburlaction_refresh@2x.png");
+    self.enable = YES;
+    return self;
+}
 
 - (enum ATWebURLActionType)type {
     return kATWebURLActionTypeRefresh;
-}
-
-- (NSString *)name {
-    return @"刷新";
-}
-
-- (NSString *)icon {
-    return @"atshare_weburlaction_refresh@2x.png";
 }
 
 - (NSString *)description {
@@ -54,17 +58,19 @@
 @implementation ATWebURLActionOpenInSafari
 @synthesize name;
 @synthesize icon;
+@synthesize enable;
+
+- (instancetype)init {
+    self = [super init];
+    if (!self) return nil;
+    self.name = @"在Safari中\n打开";
+    self.icon = atshare_imageNamed(@"atshare_weburlaction_openinsafari@2x.png");
+    self.enable = YES;
+    return self;
+}
 
 - (enum ATWebURLActionType)type {
     return kATWebURLActionTypeOpenInSafari;
-}
-
-- (NSString *)name {
-    return @"在Safari中\n打开";
-}
-
-- (NSString *)icon {
-    return @"atshare_weburlaction_openinsafari@2x.png";
 }
 
 - (NSString *)description {
