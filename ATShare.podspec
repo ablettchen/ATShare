@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name                    = 'ATShare'
-    s.version                 = '0.1.10'
+    s.version                 = '0.1.11'
     s.summary                 = 'Social share'
     s.homepage                = 'https://github.com/ablettchen/ATShare'
     s.license                 = { :type => 'MIT', :file => 'LICENSE' }

@@ -26,7 +26,6 @@
     if (!self) return nil;
     _socials = [NSMutableArray array];
     _webURLActions = [NSMutableArray array];
-    [_webURLActions addObjectsFromArray:[[self class] defaultWebURLActions]];
     return self;
 }
 
@@ -170,14 +169,6 @@
     [UMConfigure initWithAppkey:umAppKey channel:@"App Store"];
     [UMSocialGlobal shareInstance].isUsingWaterMark = NO;
     [UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
-}
-
-+ (NSArray <id<ATWebURLActionProtocol>>*)defaultWebURLActions {
-    NSMutableArray <id<ATWebURLActionProtocol>>*actions = [NSMutableArray array];
-    [actions addObject:[ATWebURLActionCopy new]];
-    [actions addObject:[ATWebURLActionRefresh new]];
-    [actions addObject:[ATWebURLActionOpenInSafari new]];
-    return actions;
 }
 
 @end

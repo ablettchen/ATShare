@@ -39,8 +39,6 @@ typedef void(^ATShareFinishedBlock)(NSError * _Nullable error, id<ATSocialProtoc
 + (BOOL)handleOpenURL:(NSURL *)url options:(NSDictionary*)options;
 + (void)globleConfig:(NSString *)umAppKey;
 
-+ (NSArray <id<ATWebURLActionProtocol>>*)defaultWebURLActions;
-
 @end
 
 NS_ASSUME_NONNULL_END
