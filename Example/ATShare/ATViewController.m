@@ -63,12 +63,19 @@
     res.thumb = [UIImage imageNamed:@"avatar"];
     res.urlString = @"https://github.com/ablettchen/ATShare";
     
+    /*
     ATSocialWechat *social = [ATSocialWechat new];
     social.appKey = @"wx2ae02e63bbc106f9";
     social.appSecret = @"135c066f553499b7acd1549bf679308a";
     social.redirectURL = @"http://mobile.umeng.com/social";
+     */
     
-    [share shareTo:social res:res finished:^(NSError * _Nullable error, id<ATSocialProtocol>  _Nonnull social) {
+    ATSocialQQ *qq = [ATSocialQQ new];
+    qq.appKey = @"1105877074";
+    qq.appSecret = @"ljoV3ksZld58bjl6";
+    qq.redirectURL = @"http://mobile.umeng.com/social";
+    
+    [share shareTo:qq res:res finished:^(NSError * _Nullable error, id<ATSocialProtocol>  _Nonnull social) {
         NSString *msg;
         if (error) {
             msg = [NSString stringWithFormat:@"%@ 分享失败，%@(%ld)", \

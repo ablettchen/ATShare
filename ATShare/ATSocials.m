@@ -19,6 +19,7 @@
 @synthesize appKey;
 @synthesize appSecret;
 @synthesize redirectURL;
+@synthesize customAction;
 
 - (instancetype)init {
     self = [super init];
@@ -46,6 +47,7 @@
 @synthesize appKey;
 @synthesize appSecret;
 @synthesize redirectURL;
+@synthesize customAction;
 
 - (instancetype)init {
     self = [super init];
@@ -73,6 +75,7 @@
 @synthesize appKey;
 @synthesize appSecret;
 @synthesize redirectURL;
+@synthesize customAction;
 
 - (instancetype)init {
     self = [super init];
@@ -100,6 +103,7 @@
 @synthesize appKey;
 @synthesize appSecret;
 @synthesize redirectURL;
+@synthesize customAction;
 
 - (instancetype)init {
     self = [super init];
@@ -127,6 +131,7 @@
 @synthesize appKey;
 @synthesize appSecret;
 @synthesize redirectURL;
+@synthesize customAction;
 
 - (instancetype)init {
     self = [super init];

@@ -11,6 +11,7 @@
 @synthesize name;
 @synthesize icon;
 @synthesize enable;
+@synthesize action;
 
 - (instancetype)init {
     self = [super init];
@@ -35,6 +36,7 @@
 @synthesize name;
 @synthesize icon;
 @synthesize enable;
+@synthesize action;
 
 - (instancetype)init {
     self = [super init];
@@ -59,6 +61,7 @@
 @synthesize name;
 @synthesize icon;
 @synthesize enable;
+@synthesize action;
 
 - (instancetype)init {
     self = [super init];

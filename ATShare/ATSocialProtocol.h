@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic, nonnull) NSString *appSecret;
 @property (copy, nonatomic, nonnull) NSString *redirectURL;
 
+@property (copy, nonatomic, nullable) void(^customAction)(__nonnull id<ATSocialProtocol> *__nonnull social);
+
 @end
 
 
