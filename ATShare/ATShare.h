@@ -23,8 +23,11 @@ typedef void(^ATShareFinishedBlock)(NSError * _Nullable error, id<ATSocialProtoc
 
 @interface ATShare : NSObject
 
-@property (strong, nonatomic, readonly) NSMutableArray <id<ATWebURLActionProtocol>> *webURLActions;
 @property (strong, nonatomic, readonly) NSMutableArray <id<ATSocialProtocol>> *socials;
+@property (strong, nonatomic, readonly) NSMutableArray <id<ATSocialProtocol>> *validSocials;
+
+@property (strong, nonatomic, readonly) NSMutableArray <id<ATWebURLActionProtocol>> *webURLActions;
+@property (strong, nonatomic, readonly) NSMutableArray <id<ATWebURLActionProtocol>> *validWebURLActions;
 
 @property (strong, nonatomic, nonnull) id<ATShareResProtocol> res;
 @property (copy, nonatomic, nullable) ATShareFinishedBlock finished;

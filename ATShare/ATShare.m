@@ -15,6 +15,7 @@
 
 @interface ATShare ()
 @property (strong, nonatomic, readwrite) NSMutableArray <id<ATSocialProtocol>> *socials;
+
 @end
 
 @implementation ATShare
@@ -31,7 +32,9 @@
     self = [super init];
     if (!self) return nil;
     _socials = [NSMutableArray array];
+    _validSocials = [NSMutableArray array];
     _webURLActions = [NSMutableArray array];
+    _validWebURLActions = [NSMutableArray array];
     return self;
 }
 
@@ -72,14 +75,26 @@
 #pragma mark - public
 
 - (void)addSocial:(__kindof NSObject<ATSocialProtocol> *)social {
-    if ([self.socials containsObject:social]) {return;}
+    
     [self shareConfig:social];
-    [self.socials addObject:social];
+    
+    if (![self.socials containsObject:social]) {
+        [self.socials addObject:social];
+    }
+    
+    if (![self.validSocials containsObject:social] && social.enable) {
+        [self.validSocials addObject:social];
+    }
 }
 
 - (void)addWebURLAction:(nonnull id<ATWebURLActionProtocol>)webURLAction {
-    if ([self.webURLActions containsObject:webURLAction]) {return;}
-    [self.webURLActions addObject:webURLAction];
+    if (![self.webURLActions containsObject:webURLAction]) {
+        [self.webURLActions addObject:webURLAction];
+    }
+    
+    if (![self.validWebURLActions containsObject:webURLAction] && webURLAction.enable) {
+        [self.validWebURLActions addObject:webURLAction];
+    }
 }
 
 - (void)shareTo:(nonnull id<ATSocialProtocol>)social
@@ -122,10 +137,10 @@
                                                                          thumImage:res.thumb];
     shareObject.webpageUrl = res.urlString;
     messageObject.shareObject = shareObject;
+    @weakify(self);
     [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:nil completion:^(id data, NSError *error) {
-        if (self.finished) {
-            self.finished(error, social);
-        }
+        @strongify(self);
+        if (self.finished) {self.finished(error, social);}
     }];
 }
 
@@ -137,10 +152,10 @@
     shareObject.thumbImage = res.thumb;
     [shareObject setShareImage:(res.urlString.length > 0) ? res.urlString : res.thumb];
     messageObject.shareObject = shareObject;
+    @weakify(self);
     [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:nil completion:^(id data, NSError *error) {
-        if (self.finished) {
-            self.finished(error, social);
-        }
+        @strongify(self);
+        if (self.finished) {self.finished(error, social);}
     }];
 }
 
@@ -152,10 +167,10 @@
                                                                      thumImage:res.thumb];
     shareObject.musicUrl = res.urlString;
     messageObject.shareObject = shareObject;
+    @weakify(self);
     [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:nil completion:^(id data, NSError *error) {
-        if (self.finished) {
-            self.finished(error, social);
-        }
+        @strongify(self);
+        if (self.finished) {self.finished(error, social);}
     }];
 }
 
@@ -167,10 +182,10 @@
                                                                      thumImage:res.thumb];
     shareObject.videoUrl = res.urlString;
     messageObject.shareObject = shareObject;
+    @weakify(self);
     [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:nil completion:^(id data, NSError *error) {
-        if (self.finished) {
-            self.finished(error, social);
-        }
+        @strongify(self);
+        if (self.finished) {self.finished(error, social);}
     }];
 }
 
