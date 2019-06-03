@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic, nonnull) UIImage *icon;
 @property (assign, nonatomic) BOOL enable;
 
-@property (copy, nonatomic, nullable) void(^action)(__nonnull id<ATWebURLActionProtocol> *__nonnull urlAction);
+@property (copy, nonatomic, nullable) void(^action)(__nonnull id<ATWebURLActionProtocol> *__nonnull obj);
 
 @end
 
