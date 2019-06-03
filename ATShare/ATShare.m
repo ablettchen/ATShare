@@ -103,12 +103,14 @@
     
     self.finished = finished;
     
+    /*
     if (!social.enable) {
         NSString *msg = [NSString stringWithFormat:@"%@ is disabled", social.description];
         NSError *error = [NSError errorWithDomain:@"com.ablett.atshare" code:404 userInfo:@{NSLocalizedDescriptionKey:msg}];
         if (self.finished) {self.finished(error, social);}
         return;
     }
+     */
     
     [self shareConfig:social];
     switch (res.type) {
