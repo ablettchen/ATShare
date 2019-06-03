@@ -11,6 +11,7 @@
 #import "ATViewController.h"
 #import <ATShare/ATShare.h>
 #import <ATCategories/ATCategories.h>
+#import <UIView+ATToast.h>
 
 @interface ATViewController ()
 
@@ -63,28 +64,14 @@
     res.thumb = [UIImage imageNamed:@"avatar"];
     res.urlString = @"https://github.com/ablettchen/ATShare";
     
-    /*
-    ATSocialWechat *social = [ATSocialWechat new];
-    social.appKey = @"wx2ae02e63bbc106f9";
-    social.appSecret = @"135c066f553499b7acd1549bf679308a";
-    social.redirectURL = @"http://mobile.umeng.com/social";
-     */
+    ATSocialWechat *wechat = [ATSocialWechat new];
+    wechat.appKey = @"wx2ae02e63bbc106f9";
+    wechat.appSecret = @"135c066f553499b7acd1549bf679308a";
+    wechat.redirectURL = @"http://mobile.umeng.com/social";
     
-    ATSocialQQ *qq = [ATSocialQQ new];
-    qq.appKey = @"1105877074";
-    qq.appSecret = @"ljoV3ksZld58bjl6";
-    qq.redirectURL = @"http://mobile.umeng.com/social";
-    
-    [share shareTo:qq res:res finished:^(NSError * _Nullable error, id<ATSocialProtocol>  _Nonnull social) {
-        NSString *msg;
-        if (error) {
-            msg = [NSString stringWithFormat:@"%@ 分享失败，%@(%ld)", \
-                   at_socialDescription(social.type),\
-                   error.localizedDescription, (long)error.code];
-        }else {
-            msg = [NSString stringWithFormat:@"%@ 分享成功", \
-                   at_socialDescription(social.type)];
-        }
+    [share shareTo:wechat res:res finished:^(NSError * _Nullable error, id<ATSocialProtocol>  _Nonnull social) {
+        NSString *msg = [NSString stringWithFormat:@"%@", error?error.localizedDescription:@"分享成功"];
+        [self.view makeToast:msg];
     }];
     
 }

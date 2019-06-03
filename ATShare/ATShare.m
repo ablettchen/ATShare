@@ -33,6 +33,9 @@
 
 - (void)shareConfig:(nonnull id<ATSocialProtocol>)social {
     if (social.type == kATSocialTypeCustom) {return;}
+    if (social.appKey.stringByTrim.length == 0 && \
+        social.appSecret.stringByTrim.length == 0 && \
+        social.redirectURL.stringByTrim.length == 0) {return;}
     UMSocialPlatformType type = [self.class umSocial:social];
     [[UMSocialManager defaultManager] setPlaform:type
                                           appKey:social.appKey
@@ -64,6 +67,7 @@
 
 - (void)addSocial:(__kindof NSObject<ATSocialProtocol> *)social {
     if ([self.socials containsObject:social]) {return;}
+    [self shareConfig:social];
     [self.socials addObject:social];
 }
 
@@ -75,6 +79,14 @@
 - (void)shareTo:(nonnull id<ATSocialProtocol>)social
             res:(nonnull id<ATShareResProtocol>)res
        finished:(nullable ATShareFinishedBlock)finished {
+    
+    if (social.type != kATSocialTypeCustom && !social.enable) {
+        NSString *msg = [NSString stringWithFormat:@"%@ is disabled", social.description];
+        NSError *error = [NSError errorWithDomain:@"com.ablett.atshare" code:404 userInfo:@{NSLocalizedDescriptionKey:msg}];
+        if (self.finished) {self.finished(error, social);}
+        return;
+    }
+    
     self.finished = finished;
     [self shareConfig:social];
     switch (res.type) {
@@ -96,12 +108,6 @@
 }
 
 - (void)shareWebTo:(nonnull id<ATSocialProtocol>)social res:(nonnull id<ATShareResProtocol>)res {
-    if (social.type != kATSocialTypeCustom && !social.enable) {
-        NSString *msg = [NSString stringWithFormat:@"%@ is disabled", social.description];
-        NSError *error = [NSError errorWithDomain:@"com.ablett.atshare" code:404 userInfo:@{NSLocalizedDescriptionKey:msg}];
-        if (self.finished) {self.finished(error, social);}
-        return;
-    }
     UMSocialPlatformType platformType = [self.class umSocial:social];
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
     UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:res.title

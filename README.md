@@ -10,6 +10,32 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+```objectiveC
+#import <ATShare/ATShare.h>
+```
+
+```objectiveC
+ATShare *share = [ATShare new];
+[share addSocial:[ATSocialWechat new]];
+[share addSocial:[ATSocialWechatTimeline new]];
+
+ATShareResWeb *res = [ATShareResWeb new];
+res.title = @"ATShare";
+res.desc = @"分享模块封装";
+res.thumb = [UIImage imageNamed:@"avatar"];
+res.urlString = @"https://github.com/ablettchen/ATShare";
+
+ATSocialWechat *wechat = [ATSocialWechat new];
+wechat.appKey = @"xxxxxx";
+wechat.appSecret = @"xxxxxx";
+wechat.redirectURL = @"http://mobile.umeng.com/social";
+
+[share shareTo:wechat res:res finished:^(NSError * _Nullable error, id<ATSocialProtocol>  _Nonnull social) {
+    NSString *msg = [NSString stringWithFormat:@"%@", error?error.localizedDescription:@"分享成功"];
+    [self.view makeToast:msg];
+}];
+```
+
 ## Requirements
 
 ## Installation
