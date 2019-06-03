@@ -21,7 +21,7 @@ ATShare *share = [ATShare new];
 
 ATShareResWeb *res = [ATShareResWeb new];
 res.title = @"ATShare";
-res.desc = @"分享模块封装";
+res.desc = @"Social share";
 res.thumb = [UIImage imageNamed:@"avatar"];
 res.urlString = @"https://github.com/ablettchen/ATShare";
 
@@ -31,7 +31,7 @@ wechat.appSecret = @"xxxxxx";
 wechat.redirectURL = @"http://mobile.umeng.com/social";
 
 [share shareTo:wechat res:res finished:^(NSError * _Nullable error, id<ATSocialProtocol>  _Nonnull social) {
-    NSString *msg = [NSString stringWithFormat:@"%@", error?error.localizedDescription:@"分享成功"];
+    NSString *msg = [NSString stringWithFormat:@"%@", error?error.localizedDescription:@"succeed"];
     [self.view makeToast:msg];
 }];
 ```

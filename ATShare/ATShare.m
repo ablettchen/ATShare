@@ -19,6 +19,12 @@
 
 @implementation ATShare
 
+- (void)dealloc {
+#ifdef DEBUG
+    NSLog(@"%d - %s", (int)__LINE__, __func__);
+#endif
+}
+
 #pragma mark - lifecycle
 
 - (instancetype)init {
