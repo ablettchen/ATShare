@@ -9,9 +9,23 @@
 
 
 #import "ATShare.h"
+#if __has_include(<UMShare/UMShare.h>)
 #import <UMShare/UMShare.h>
+#else
+#import "UMShare.h"
+#endif
+
+#if __has_include(<UMCommon/UMCommon.h>)
 #import <UMCommon/UMCommon.h>
+#else
+#import "UMCommon.h"
+#endif
+
+#if __has_include(<ATCategories/ATCategories.h>)
 #import <ATCategories/ATCategories.h>
+#else
+#import "ATCategories.h"
+#endif
 
 @interface ATShare ()
 @property (strong, nonatomic, readwrite) NSMutableArray <id<ATSocialProtocol>> *socials;

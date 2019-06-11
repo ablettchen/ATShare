@@ -65,8 +65,8 @@
     res.urlString = @"https://github.com/ablettchen/ATShare";
     
     ATSocialWechat *wechat = [ATSocialWechat new];
-    wechat.appKey = @"wx2ae02e63bbc106f9";
-    wechat.appSecret = @"135c066f553499b7acd1549bf679308a";
+    wechat.appKey = @"xxx";
+    wechat.appSecret = @"xxx";
     wechat.redirectURL = @"http://mobile.umeng.com/social";
     
     [share shareTo:wechat res:res finished:^(NSError * _Nullable error, id<ATSocialProtocol>  _Nonnull social) {

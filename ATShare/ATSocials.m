@@ -9,8 +9,17 @@
 
 
 #import "ATSocials.h"
-#import <UMCommon/UMCommon.h>
+#if __has_include(<UMShare/UMShare.h>)
 #import <UMShare/UMShare.h>
+#else
+#import "UMShare.h"
+#endif
+
+#if __has_include(<UMCommon/UMCommon.h>)
+#import <UMCommon/UMCommon.h>
+#else
+#import "UMCommon.h"
+#endif
 
 @implementation ATSocialWechat
 @synthesize name;
